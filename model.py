@@ -9,7 +9,7 @@ from transformers import BertForNextSentencePrediction, AdamW, BertConfig
 from sklearn.model_selection import train_test_split
 from transformers import get_linear_schedule_with_warmup
 import torch.nn as nn
-
+path='ijcnlp_dailydialog/dialogues_text.txt'
 
 def MarginRankingLoss(p_scores, n_scores):
     margin = 1
@@ -26,13 +26,13 @@ tokenizer = BertTokenizer.from_pretrained('bert-base-uncased', do_lower_case=Tru
 sample_num_memory = []
 id_inputs = []
 
-#for line in open('/Users/linzi/Desktop/dialogue_test/training_data/dailydial/dailydial_sample_num.txt'):
+#for line in open(path):
 for line in open('/ubc/cs/research/nlp/Linzi/dailydial/dailydial_sample_num.txt'):
     line = line.strip()
     sample_num_memory.append(int(line))
 
 #for line in open('/Users/linzi/Desktop/dialogue_test/training_data/dailydial/dailydial_pairs.txt'):
-for line in open('/ubc/cs/research/nlp/Linzi/dailydial/dailydial_pairs.txt'):
+for line in open('path'):
     line = line.strip().split('\t\t')
     sent1 = line[0]
     sent2 = line[1]
